@@ -41,11 +41,11 @@
 </script>
 
 <div class="h-full w-3/4 flex justify-center items-center flex-col">
-    <div class="border h-52 w-1/2 px-2">
-        <p class="text-lg">{textDisplay}</p>
+    <div class="border h-60 w-4/5 px-2 max-w-2xl">
+        <p class="text-3xl overflow-auto">{textDisplay}</p>
     </div>
     
-    <form class="w-1/2" on:submit|preventDefault={checkCorrect} autocomplete="off">
+    <form class="w-3/4 max-w-lg" on:submit|preventDefault={checkCorrect} autocomplete="off">
     <input type="text" on:keydown={startTimer} bind:value={input} onpaste='return false' id="textInput" class="text-black outline-none w-full mt-4 pl-2 h-8">
     </form>
 
