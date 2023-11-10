@@ -9,15 +9,3 @@ h1,h2,h3,h4,a,p,li,input,button{
   font-family: 'VT323', monospace;
   font-weight: normal;
 }
-
-h1 {
-    font-size: 20px;
-}
-
-h2 {
-    font-size: 80px;
-}
-
-p {
-    font-size: 20px;
-}
