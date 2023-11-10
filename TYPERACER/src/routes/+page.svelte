@@ -48,7 +48,7 @@
     </div>
     
     <form class="w-1/2" on:submit|preventDefault={checkCorrect} autocomplete="off">
-    <input type="text" on:keydown={startTimer} bind:value={input} id="textInput" class="text-black outline-none w-full mt-4 pl-2 h-8">
+    <input type="text" on:keydown={startTimer} bind:value={input} onpaste='return false' id="textInput" class="text-black outline-none w-full mt-4 pl-2 h-8">
     </form>
     <button on:click={newQuote} class="w-auto text-2xl hover:text-red-200">Next</button>
 
