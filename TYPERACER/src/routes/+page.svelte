@@ -8,14 +8,10 @@
     let input
     let completedTyping = false
     let timer = 0
-    let startedTyping = true
+    let startedTyping = false
     let displayedWPM = 0
 
     $: wordsPerMinute = Math.floor(textDisplay.split(' ').length / timer * 100 * 60)
-
-    // if(displayedWPM < wordsPerMinute && completedTyping === false) {
-     displayedWPM = wordsPerMinute
-    // }
 
     function newQuote() {
         window.location.reload()
@@ -31,12 +27,14 @@
     }
 
     function startTimer() {
-        startedTyping = true
+        if (input.length > 0) {
+            startedTyping = true
+        }
 
         if (startedTyping === true && timer === 0) {
-        let timerInterval = setInterval(() => {
-            timer++
-        }, 10);
+            let timerInterval = setInterval(() => {
+                timer++
+            }, 10);
         } 
     }
 
@@ -50,7 +48,12 @@
     <form class="w-1/2" on:submit|preventDefault={checkCorrect} autocomplete="off">
     <input type="text" on:keydown={startTimer} bind:value={input} onpaste='return false' id="textInput" class="text-black outline-none w-full mt-4 pl-2 h-8">
     </form>
+
     <button on:click={newQuote} class="w-auto text-2xl hover:text-red-200">Next</button>
+
+    {#if startedTyping && !completedTyping}
+        <p>(started typing..)</p>
+    {/if}
 
     {#if completedTyping}
         <p class="text-4xl">Good Job!</p>
