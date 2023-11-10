@@ -4,8 +4,10 @@
     export let data
     const { quotes } = data
 
-    let textDisplay = quotes[Math.floor(Math.random() * 100)].quote
+    let randomNumber = Math.floor(Math.random() * 100)
+    let textDisplay = quotes[randomNumber].quote
     let input
+    let author = quotes[randomNumber].author
     let completedTyping = false
     let timer = 0
     let startedTyping = false
@@ -18,9 +20,9 @@
     }
 
     function checkCorrect() {
-        if (input !== textDisplay) {
+        if (input.replace(`\'`, `\’`) !== textDisplay) {
             return
-        } else if (input === textDisplay) {
+        } else if (input.replace(`\'`, `\’`) === textDisplay) {
             displayedWPM = wordsPerMinute
             completedTyping = true
         }
@@ -40,10 +42,13 @@
 
 </script>
 
-<div class="h-full w-3/4 flex justify-center items-center flex-col">
+<div class="h-full w-3/4 flex justify-center items-center flex-col mt-52">
     <div class="border h-60 w-4/5 px-2 max-w-2xl">
         <p class="text-3xl overflow-auto">{textDisplay}</p>
     </div>
+    <p>
+        SOURCE: {author}
+    </p>
     
     <form class="w-3/4 max-w-lg" on:submit|preventDefault={checkCorrect} autocomplete="off">
     <input type="text" on:keydown={startTimer} bind:value={input} onpaste='return false' id="textInput" class="text-black outline-none w-full mt-4 pl-2 h-8">
