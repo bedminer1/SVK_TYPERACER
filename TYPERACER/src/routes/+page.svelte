@@ -22,9 +22,11 @@
     function checkCorrect() {
         if (input.replace(`\'`, `\’`) !== textDisplay) {
             return
-        } else if (input.replace(`\'`, `\’`) === textDisplay) {
+        } else if (input.replace(`\'`, `\’`) === textDisplay && !completedTyping) {
             displayedWPM = wordsPerMinute
             completedTyping = true
+        } else if (completedTyping) {
+            window.location.reload()
         }
     }
 
@@ -42,16 +44,17 @@
 
 </script>
 
-<div class="h-full w-3/4 flex justify-center items-center flex-col mt-52">
-    <div class="border h-60 w-4/5 px-2 max-w-2xl">
-        <p class="text-3xl overflow-auto">{textDisplay}</p>
+<div class="flex flex-col items-center justify-center w-3/4 h-full mt-52">
+    <div class="w-4/5 max-w-2xl px-2 border h-60">
+        <p class="overflow-auto text-3xl">{textDisplay}</p>
     </div>
     <p>
         SOURCE: {author}
     </p>
     
     <form class="w-3/4 max-w-lg" on:submit|preventDefault={checkCorrect} autocomplete="off">
-    <input type="text" on:keydown={startTimer} bind:value={input} onpaste='return false' id="textInput" class="text-black outline-none w-full mt-4 pl-2 h-8">
+    <!-- svelte-ignore a11y-autofocus -->
+    <input type="text" autofocus on:keydown={startTimer} bind:value={input} onpaste='return false' id="textInput" class="w-full pl-2 mt-4 text-3xl text-black outline-none h-22">
     </form>
 
     <button on:click={newQuote} class="w-auto text-2xl hover:text-red-200">Next</button>
