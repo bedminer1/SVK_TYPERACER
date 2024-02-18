@@ -11,10 +11,6 @@
 				<a href="/typing">type</a>
 				<a href="/stats">history</a>
 			</div>
-			<div class="flex gap-6">
-				<p>username</p>
-				<a href="/auth">logout</a>
-			</div>
 		</div>
 	</nav>
 	<slot />
