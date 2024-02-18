@@ -69,7 +69,7 @@
         <form action="?/create" method="post">
             <input type="hidden" name="wpm" id="wpm" value={displayedWPM}>
             <input type="hidden" name="quote" id="quote" value={textDisplay}>
-            <button type="submit" class="text-3xl">Save Score!</button>
+            <button type="submit" class="text-3xl">Save Score?</button>
         </form>
     {/if}
 </div>

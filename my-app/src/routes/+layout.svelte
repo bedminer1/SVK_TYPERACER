@@ -8,6 +8,7 @@
 		<div class="flex justify-between w-full px-10 py-1">
 			<div class="flex gap-6">
 				<a href="/">home</a>
+				<a href="/typing">type</a>
 				<a href="/stats">history</a>
 			</div>
 			<div class="flex gap-6">
