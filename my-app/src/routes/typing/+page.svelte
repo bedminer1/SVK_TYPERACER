@@ -5,7 +5,7 @@
     const { quotes } = data
 
     let randomNumber = Math.floor(Math.random() * 100)
-    let textDisplay = quotes[randomNumber].quote
+    let textDisplay = quotes[randomNumber].quote.toLowerCase()
     let input
     let author = quotes[randomNumber].author
     let completedTyping = false
