@@ -1,5 +1,5 @@
 <footer>
-    <div class="copyright"><p><a href="https://github.com/bedminer1" target="_blank">Copyright @bedminer1 2023</a></p></div>
+    <div class="copyright"><p><a href="https://github.com/bedminer1/SVK_TYPERACER" target="_blank">Copyright @bedminer1 2023</a></p></div>
 </footer>
 
 <style>
